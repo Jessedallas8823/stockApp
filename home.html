@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <title>Triple J Trends</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- Axios -->
 </head>
 
 <body>
@@ -16,7 +17,8 @@
         <div class="form-container">
             <div class="form-group">
                 <label for="stock">Enter Stock:</label>
-                <input type="text" id="stock" placeholder="MSFT">
+                <input type="text" id="stock" placeholder="Type stock symbol...">
+                <ul id="dropdown" class="dropdown"></ul>
             </div>
             <div class="form-group">
                 <label for="startDate">Start Date:</label>
@@ -24,7 +26,7 @@
             </div>
             <div class="form-group">
                 <label>Market Data Provider:</label>
-                <label><input type="radio" name="provider" value="Polygon"> Polygon</label><br>
+                <label><input type="radio" name="provider" value="Polygon" checked> Polygon</label><br>
                 <label><input type="radio" name="provider" value="AlphaVantage"> AlphaVantage</label>
             </div>
             <div class="form-group">
@@ -34,14 +36,11 @@
                     <option value="Quarterly">Quarterly</option>
                 </select>
             </div>
-            <button class="display-results" onclick="redirectToResults()">Display Results</button>
+            <button class="display-results" onclick="redirectToResults(selectSymbol())">Display Results</button>
         </div>
     </div>
-
-    <script>
-        function redirectToResults() {
-            window.location.href = 'results.html';
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- Axios -->
+    <script src="js/search.js"></script> <!-- Your custom JavaScript -->
+    
 </body>
 </html>
