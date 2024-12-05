@@ -6,29 +6,45 @@
     <link rel="stylesheet" href="css/styles.css">
     <title>Triple J Trends</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- Axios -->
+    <script src="js/search.js" defer></script> <!-- JavaScript -->
 </head>
-
 <body>
     <div class="triple-j-container">
         <header id="triple-j-header">
             <img src="css/logo/logo-transparent-png.png" alt="Triple J Trends Logo" class="triple-j-logo">
         </header>
-        
+
         <div class="form-container">
+            <!-- Stock Symbol Input -->
             <div class="form-group">
                 <label for="stock">Enter Stock:</label>
-                <input type="text" id="stock" placeholder="Type stock symbol...">
+                <input 
+                    type="text" 
+                    id="stock" 
+                    placeholder="Type stock symbol..." 
+                    oninput="fetchStockSymbols(event)"
+                >
                 <ul id="dropdown" class="dropdown"></ul>
             </div>
+
+            <!-- Start Date -->
             <div class="form-group">
                 <label for="startDate">Start Date:</label>
                 <input type="date" id="startDate">
             </div>
+
+            <!-- Market Data Provider -->
             <div class="form-group">
                 <label>Market Data Provider:</label>
-                <label><input type="radio" name="provider" value="Polygon" checked> Polygon</label><br>
-                <label><input type="radio" name="provider" value="AlphaVantage"> AlphaVantage</label>
+                <label>
+                    <input type="radio" name="provider" value="Polygon" checked> Polygon
+                </label><br>
+                <label>
+                    <input type="radio" name="provider" value="AlphaVantage"> AlphaVantage
+                </label>
             </div>
+
+            <!-- Data Intervals -->
             <div class="form-group">
                 <label for="dataIntervals">Data Intervals:</label>
                 <select id="dataIntervals">
@@ -36,11 +52,10 @@
                     <option value="Quarterly">Quarterly</option>
                 </select>
             </div>
-            <button class="display-results" onclick="redirectToResults(selectSymbol())">Display Results</button>
+
+            <!-- Display Results Button -->
+            <button class="display-results" onclick="handleDisplayResults()">Display Results</button>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- Axios -->
-    <script src="js/search.js"></script> <!-- Your custom JavaScript -->
-    
 </body>
 </html>
